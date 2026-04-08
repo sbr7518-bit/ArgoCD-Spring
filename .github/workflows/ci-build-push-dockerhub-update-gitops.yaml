@@ -21,7 +21,7 @@ jobs:
         id: meta
         run: |
           SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
-          echo "tag=${SHORT_SHA}" >> $GITHUB_OUTPUT
+          echo "tag=v${SHORT_SHA}" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -62,5 +62,6 @@ jobs:
           git add "${{ env.KUSTOMIZE_FILE }}"
           git commit -m "chore: deploy demo image ${{ steps.meta.outputs.tag }}" || exit 0
           git push
+
 
 
