@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_NAME: docker.io/sbr7518/demo
-  GITOPS_REPO: sbr7518/ArgoCD
+  GITOPS_REPO: sbr7518-bit/ArgoCD
   GITOPS_BRANCH: master
   KUSTOMIZE_FILE: apps/demo/kustomization.yaml
 
@@ -57,7 +57,7 @@ jobs:
       - name: Commit and push changes to gitops repo
         run: |
           cd gitops
-          git config user.name "sbr7518"
+          git config user.name "sbr7518-bit"
           git config user.email "sbr7518@gmail.com"
           git add "${{ env.KUSTOMIZE_FILE }}"
           git commit -m "chore: deploy demo image ${{ steps.meta.outputs.tag }}" || exit 0
