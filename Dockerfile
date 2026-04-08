@@ -9,4 +9,3 @@ COPY --from=build /GitOps/build/libs/*SNAPSHOT.jar GitOps.jar
 
 EXPOSE 8080
 ENTRYPOINT [ "java", "-jar", "GitOps.jar" ]
-
